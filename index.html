@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Playable Preview</title>
+    <link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+    <header class="app-header">
+        <h1>Playable Preview</h1>
+    </header>
+
+    <main class="app-main">
+        <section class="controls">
+            <div class="field">
+                <label for="snippetInput">HTML-like snippet</label>
+                <textarea id="snippetInput" placeholder="Paste your playable snippet here..." spellcheck="false"></textarea>
+            </div>
+            <div class="buttons">
+                <button id="previewBtn" class="primary">Preview</button>
+                <button id="clearAllBtn">Clear</button>
+            </div>
+
+            <div class="field inline">
+                <label for="engagementTapsInput">Taps for engagement (0-9)</label>
+                <input id="engagementTapsInput" type="number" min="0" max="9" step="1" value="1">
+            </div>
+            <div class="field inline">
+                <label for="redirectionTapsInput">Taps for redirection (0-9)</label>
+                <input id="redirectionTapsInput" type="number" min="0" max="9" step="1" value="0">
+            </div>
+        </section>
+
+        <section class="preview-and-logs">
+            <div class="preview-column">
+                <div class="device-wrap portrait" id="deviceWrap">
+                    <div class="device-bezel">
+                        <iframe id="previewFrame" title="Playable Preview Frame" sandbox="allow-scripts allow-same-origin allow-popups allow-forms" scrolling="no"></iframe>
+                    </div>
+                </div>
+                <div class="orientation-dock">
+                    <button id="btnPortrait" class="toggle active" title="Portrait">Portrait</button>
+                    <button id="btnLandscape" class="toggle" title="Landscape">Landscape</button>
+                </div>
+            </div>
+
+            <div class="logs">
+                <div class="log-toolbar">
+                    <div class="tabs">
+                        <button class="tab active" data-tab="all">All</button>
+                        <button class="tab" data-tab="event">Event</button>
+                        <button class="tab" data-tab="console">Console</button>
+                        <button class="tab" data-tab="error">Errors</button>
+                        <button class="tab" data-tab="network">Network</button>
+                    </div>
+                </div>
+                <div id="logList" class="log-list" aria-live="polite"></div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="app-footer">
+        <span>Local preview. Ready for GitHub Pages hosting.</span>
+    </footer>
+
+    <script src="./app.js"></script>
+</body>
+    
+</html>
+
+
