@@ -51,6 +51,8 @@
   const deviceBezel = deviceWrap ? deviceWrap.querySelector('.device-bezel') : null;
   /** @type {HTMLDivElement} */
   const logList = document.getElementById('logList');
+  /** @type {HTMLDivElement} */
+  const deviceSizeLabel = document.getElementById('deviceSize');
 
   /** Tabs */
   const tabButtons = Array.from(document.querySelectorAll('.tab'));
@@ -208,6 +210,16 @@
     const scale = Math.min(availableWidth / w, availableHeight / h, 1);
     deviceBezel.style.transformOrigin = 'center center';
     deviceBezel.style.transform = `scale(${scale})`;
+    updateDeviceSizeLabel();
+  }
+
+  function updateDeviceSizeLabel() {
+    try {
+      const iframe = previewFrame;
+      const w = iframe ? iframe.offsetWidth : 0;
+      const h = iframe ? iframe.offsetHeight : 0;
+      if (deviceSizeLabel) deviceSizeLabel.textContent = `${w} x ${h}`;
+    } catch (_) { /* ignore */ }
   }
 
   // Build preview document (minimal): MRAID stub + base style + user snippet

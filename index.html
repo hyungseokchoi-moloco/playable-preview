@@ -14,7 +14,7 @@
     <main class="app-main">
         <section class="controls">
             <div class="field">
-                <label for="snippetInput">HTML-like snippet</label>
+                <label for="snippetInput">Playable snippet</label>
                 <textarea id="snippetInput" placeholder="Paste your playable snippet here..." spellcheck="false"></textarea>
             </div>
             <div class="buttons">
@@ -39,6 +39,7 @@
                         <iframe id="previewFrame" title="Playable Preview Frame" sandbox="allow-scripts allow-same-origin allow-popups allow-forms" scrolling="no"></iframe>
                     </div>
                 </div>
+                <div class="device-size" id="deviceSize"></div>
                 <div class="orientation-dock">
                     <button id="btnPortrait" class="toggle active" title="Portrait">Portrait</button>
                     <button id="btnLandscape" class="toggle" title="Landscape">Landscape</button>
@@ -59,11 +60,6 @@
             </div>
         </section>
     </main>
-
-    <footer class="app-footer">
-        <span>Local preview. Ready for GitHub Pages hosting.</span>
-    </footer>
-
     <script src="./app.js"></script>
 </body>
     
