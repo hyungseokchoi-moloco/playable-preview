@@ -20,18 +20,24 @@
     removeEventListener() { }
     isViewable() { return true; }
     setOrientationProperties() { return {}; }
-    open(url) { 
+    open(url) {
       try {
         var clickedUrl = url || '';
         var decoded = '';
         var isEncoded = false;
-        try {
-          decoded = decodeURIComponent(clickedUrl);
-          isEncoded = decoded !== clickedUrl;
-        } catch (_) {
-          isEncoded = false;
+        var msg = '';
+        // Check for empty URL parameter
+        if (!url || clickedUrl === '') {
+          msg = 'empty-url mraid.open() called with empty/missing URL';
+        } else {
+          try {
+            decoded = decodeURIComponent(clickedUrl);
+            isEncoded = decoded !== clickedUrl;
+          } catch (_) {
+            isEncoded = false;
+          }
+          msg = (isEncoded ? 'unescaped ' : '') + 'CTA button clicked: ' + clickedUrl;
         }
-        var msg = (isEncoded ? 'unescaped ' : '') + 'CTA button clicked: ' + clickedUrl;
         parent.postMessage({ __preview__: true, type: 'event', message: msg }, '*');
       } catch (e) {
         console.error('Mraid.open error', e);

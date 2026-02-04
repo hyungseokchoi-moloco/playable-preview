@@ -78,6 +78,7 @@ button.toggle.active { outline: 2px solid var(--primary); }
 .log-entry.network { color: var(--warn); }
 .log-entry.event { color: var(--success); }
 .log-entry.event.unescaped { color: var(--danger); }
+.log-entry.event.empty-url { color: var(--danger); }
 .log-entry.info { color: var(--text); }
 .log-entry.info.success { color: var(--success); }
 .log-entry.info.error { color: var(--danger); }

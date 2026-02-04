@@ -158,6 +158,9 @@
       if (l.type === 'event' && typeof msgStr === 'string' && msgStr.indexOf('unescaped') === 0) {
         div.classList.add('unescaped');
       }
+      if (l.type === 'event' && typeof msgStr === 'string' && msgStr.indexOf('empty-url') === 0) {
+        div.classList.add('empty-url');
+      }
       div.appendChild(content);
       frag.appendChild(div);
     }
